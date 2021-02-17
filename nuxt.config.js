@@ -1,8 +1,10 @@
 export default {
+  // ssr: false,
+
   head: {
     title: 'mrbigass.github.io',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'ja'
     },
     meta: [
       { charset: 'utf-8' },
@@ -15,22 +17,33 @@ export default {
   },
 
   css: [
+    '~/assets/markdown.sass'
   ],
 
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-  ],
-
-  // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
   ],
 
-  // Build Configuration: https://go.nuxtjs.dev/config-build
+  modules: [
+    '@nuxtjs/bulma',
+    '@nuxtjs/style-resources',
+  ],
+
   build: {
-  },
+    extend(config, ctx) {
+      config.module.rules.push({
+        test: /\.md$/,
+        use: ['raw-loader']
+      });
+    },
+    postcss: {
+      preset: {
+        features: {
+          customProperties: false
+        }
+      }
+    },
+  }
 }

@@ -1,62 +1,103 @@
 <template>
   <div>
-    <Nuxt />
+    <header class="site-header">
+      <div class="header-container">
+        <div class="header-title">
+          <NuxtLink to="/">Mrbigass</NuxtLink>
+        </div>
+        <nav class="site-nav">
+          <ul>
+            <li><NuxtLink to="/about_me">AboutMe</NuxtLink></li>
+            <li><NuxtLink to="/works">Works</NuxtLink></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class=main>
+      <Nuxt />
+    </div>
   </div>
 </template>
 
-<style>
-html {
-  font-family:
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
+<style lang="sass">
+html
+  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif
+  font-size: 16px
+  word-spacing: 1px
+  -ms-text-size-adjust: 100%
+  -webkit-text-size-adjust: 100%
+  -moz-osx-font-smoothing: grayscale
+  -webkit-font-smoothing: antialiased
+  box-sizing: border-box
 
 *,
 *::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-}
+*::after
+  box-sizing: border-box
+  margin: 0
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
+a
+  color: #35495e
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
+header
+  position: -webkit-sticky
+  position: sticky
+  top: 0
 
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
+.header-container
+  margin: 0 auto
+  display: flex
+  justify-content: space-between
+  align-items: center
+  text-align: center
+  width: 540px
 
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
-}
+.site-header
+  min-height: 50px
+  border-bottom: 1px solid #e8e8e8
+
+.header-title
+  font-size: 26px
+  font-weight: 300
+  line-height: 54px
+  letter-spacing: -1px
+  margin-bottom: 0
+  float: left
+
+.site-nav
+  float: right
+  ul
+    display: flex
+  li
+    margin-left: 12px
+
+.button--green
+  display: inline-block
+  border-radius: 4px
+  border: 1px solid #3b8070
+  color: #3b8070
+  text-decoration: none
+  padding: 10px 30px
+
+.button--green:hover
+  color: #fff
+  background-color: #3b8070
+
+.button--grey
+  display: inline-block
+  border-radius: 4px
+  border: 1px solid #35495e
+  color: #35495e
+  text-decoration: none
+  padding: 10px 30px
+  margin-left: 15px
+
+.button--grey:hover
+  color: #fff
+  background-color: #35495e
+
+.main
+  max-width:750px
+  min-height: 100vh
+  margin: 0 auto
 </style>
