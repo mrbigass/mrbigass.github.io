@@ -1,6 +1,4 @@
 export default {
-  // ssr: false,
-
   head: {
     title: 'mrbigass.github.io',
     htmlAttrs: {

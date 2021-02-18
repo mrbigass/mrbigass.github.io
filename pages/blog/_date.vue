@@ -1,24 +1,23 @@
 <template>
-  <div class="markdown" v-html="compiledMarkdown()"></div>
+  <markdown
+    :markdownRawText="markdownRawText"
+  >
+  </markdown>
 </template>
 
 <script lang="ts">
-import marked from 'marked';
+import { Context } from 'node-sass';
 
 export default {
-  async asyncData({ params }): Promise<{ markdownText: string }> {
-    const importedModule = await import(`~/markdowns/blog/${params.date}.md`)
-    const markdownText: string = importedModule.default
-    return { markdownText }
+  async asyncData(context: Context): Promise<{ markdownRawText: string }> {
+    const { params } = context
+    const importedModule = await require(`~/markdowns/blog/${params.date}.md`)
+    const markdownRawText: string = importedModule.default
+    return { markdownRawText }
   },
   data() {
     return {
-      markdownText: '' as string
-    }
-  },
-  methods: {
-    compiledMarkdown(): string {
-      return marked(this.markdownText, {})
+      markdownRawText: ''
     }
   }
 }
