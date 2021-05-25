@@ -1,21 +1,15 @@
 <template>
-  <markdown
-    :markdownRawText="markdownRawText"
+  <markdown-loader
+    :markdownFilePath="markdownFilePath"
   >
-  </markdown>
+  </markdown-loader>
 </template>
 
 <script lang="ts">
-export default {
-  async asyncData(): Promise<{ markdownRawText: string }> {
-    const importedModule = await require('~/markdowns/about_me.md')
-    const markdownRawText: string = importedModule.default
-    return { markdownRawText }
-  },
-  data() {
-    return {
-      markdownRawText: ''
-    }
-  }
+import { Vue, Component } from 'vue-property-decorator';
+
+@Component
+export default class AboutMePage extends Vue {
+  markdownFilePath: string = 'about_me'
 }
 </script>
