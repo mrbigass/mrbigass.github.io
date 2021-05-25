@@ -41,5 +41,8 @@ jobs:
       - name: Install dependencies 👨🏻‍💻
         run: yarn
 
+      - name: Generate test
+        run: yarn generate
+
       # - name: Run tests 🧪
       #   run: yarn test

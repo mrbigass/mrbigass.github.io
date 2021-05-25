@@ -14,6 +14,8 @@ export default {
     ]
   },
 
+  target: 'static',
+
   css: [
     '~/assets/markdown.sass'
   ],
