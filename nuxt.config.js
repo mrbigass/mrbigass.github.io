@@ -16,6 +16,10 @@ export default {
 
   target: 'static',
 
+  generate: {
+    routes: ['/blog/2021-02-01']
+  },
+
   css: [
     '~/assets/markdown.sass'
   ],
