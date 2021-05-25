@@ -28,6 +28,6 @@
   "devDependencies": {
     "@nuxt/types": "^2.14.12",
     "@nuxt/typescript-build": "^2.0.4",
-    "marked": "^1.2.8"
+    "marked": "^2.0.5"
   }
 }
