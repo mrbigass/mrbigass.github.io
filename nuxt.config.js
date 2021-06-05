@@ -1,13 +1,4 @@
-import fs from 'fs';
-
-let fileList = []
-fs.readdir('./markdowns/blog/', function(err, files) {
-    if (err) throw err;
-
-    fileList = files.map((fileName) => {
-      return `/blog/${fileName.slice(0, fileName.length - 3)}`
-    })
-});
+import fileList from './lib/entry_files'
 
 export default {
   head: {
