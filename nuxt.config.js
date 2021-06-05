@@ -1,3 +1,14 @@
+import fs from 'fs';
+
+let fileList = []
+fs.readdir('./markdowns/blog/', function(err, files) {
+    if (err) throw err;
+
+    fileList = files.map((fileName) => {
+      return `/blog/${fileName.slice(0, fileName.length - 3)}`
+    })
+});
+
 export default {
   head: {
     title: 'mrbigass.github.io',
@@ -17,7 +28,9 @@ export default {
   target: 'static',
 
   generate: {
-    routes: ['/blog/2021-02-01']
+    routes() {
+      return fileList
+    }
   },
 
   css: [
