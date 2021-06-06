@@ -9,9 +9,9 @@
 import { Vue, Component } from 'vue-property-decorator';
 
 @Component
-export default class Blog extends Vue {
+export default class Entry extends Vue {
   get markdownFilePath() {
-    return `blog/${this.$route.params.date}`;
+    return `entry/${this.$route.params.date}`;
   }
 }
 </script>
