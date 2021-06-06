@@ -1,33 +1,28 @@
 <template>
   <div class="container">
     <div>
-      <h1>
-        I'll make this page soon
-      </h1>
-      <!-- <div class="links"> -->
-      <!--   <a -->
-      <!--     href="https://nuxtjs.org/" -->
-      <!--     target="_blank" -->
-      <!--     rel="noopener noreferrer" -->
-      <!--     class="button--green" -->
-      <!--   > -->
-      <!--     Documentation -->
-      <!--   </a> -->
-      <!--   <a -->
-      <!--     href="https://github.com/nuxt/nuxt.js" -->
-      <!--     target="_blank" -->
-      <!--     rel="noopener noreferrer" -->
-      <!--     class="button--grey" -->
-      <!--   > -->
-      <!--     GitHub -->
-      <!--   </a> -->
-      <!-- </div> -->
+      <li v-for="entry in entries" :key="entry.title">
+        <entry-card
+          :entry="entry"
+          ></entry-card>
+      </li>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-export default {}
+import { Vue, Component } from 'vue-property-decorator';
+// import fileList from '~/lib/entry_files.ts';
+
+@Component
+export default class Index extends Vue {
+  get entries() {
+    return [
+      { title: 'hoge', date: '2021' },
+      { title: 'fuga', date: '2022' },
+    ];
+  }
+}
 </script>
 
 <style lang="sass" scoped>
