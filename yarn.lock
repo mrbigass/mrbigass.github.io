@@ -1516,7 +1516,7 @@
     "@types/relateurl" "*"
     "@types/uglify-js" "*"
 
-"@types/js-yaml@^4.0.0":
+"@types/js-yaml@^4.0.0", "@types/js-yaml@^4.0.1":
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/@types/js-yaml/-/js-yaml-4.0.1.tgz#5544730b65a480b18ace6b6ce914e519cec2d43b"
   integrity sha512-xdOvNmXmrZqqPy3kuCQ+fz6wA0xU5pji9cd1nDrflWaAWtYLLGk5ykW0H6yg5TVyehHP1pfmuuSaZkhP+kspVA==
