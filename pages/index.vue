@@ -12,7 +12,30 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
-// import fileList from '~/lib/entry_files.ts';
+import fs from 'fs';
+import yaml from 'js-yaml';
+
+interface entryObject {
+  title: string | null,
+  subTitle: string | null,
+  date: string | null,
+}
+
+const splitInput = (str: string): (string | null) => {
+	const matcher = /\n-{3}/g;
+	const metaEnd = matcher.exec(str);
+
+	return metaEnd && str.slice(0, metaEnd.index);
+}
+
+const metaData = (src: string): entryObject => {
+  const data: entryObject = yaml.load(splitInput(src)[0])
+  return data ? {
+    title: data.title,
+    subTitle: data.subtitle,
+    date: data.date
+  } : { title: null, subtitle: null, date: null }
+};
 
 @Component
 export default class Index extends Vue {
