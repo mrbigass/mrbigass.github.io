@@ -45,6 +45,9 @@ export default {
         test: /\.md$/,
         use: ['raw-loader']
       });
+      config.node = {
+        fs: "empty"
+      }
     },
     postcss: {
       preset: {
