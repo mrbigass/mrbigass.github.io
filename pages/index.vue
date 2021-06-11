@@ -1,11 +1,12 @@
 <template>
   <div class="container">
     <div>
-      <li v-for="entry in entries" :key="entry.title">
+      <div v-for="entry in entries" :key="entry.title">
         <entry-card
-          :entry="entry"
+          :title="entry.title"
+          :date="entry.date"
           ></entry-card>
-      </li>
+      </div>
     </div>
   </div>
 </template>
@@ -14,36 +15,40 @@
 import { Vue, Component } from 'vue-property-decorator';
 import fs from 'fs';
 import yaml from 'js-yaml';
+import EntryCard from '~/components/EntryCard.vue';
 
-interface entryObject {
-  title: string | null,
-  subTitle: string | null,
-  date: string | null,
-}
+const files = fs.readdirSync('./markdowns/entry/')
+const fileList = files.map((fileName: string) => {
+  return `./markdowns/entry/${fileName}`
+})
 
-const splitInput = (str: string): (string | null) => {
+const splitInput = (str: string): string => {
 	const matcher = /\n-{3}/g;
 	const metaEnd = matcher.exec(str);
+  if (metaEnd == null) return ''
 
-	return metaEnd && str.slice(0, metaEnd.index);
+	return str.slice(0, metaEnd.index);
 }
 
-const metaData = (src: string): entryObject => {
-  const data: entryObject = yaml.load(splitInput(src)[0])
-  return data ? {
+const metaData = (src: string): { title: string | null, date: Date | null } => {
+  const data: object = yaml.load(splitInput(src))
+
+  const returnData = {
     title: data.title,
-    subTitle: data.subtitle,
-    date: data.date
-  } : { title: null, subtitle: null, date: null }
+    date: data.date,
+  }
+
+  return returnData
 };
 
-@Component
-export default class Index extends Vue {
+@Component({
+  components: {
+    EntryCard
+  }
+})
+export default class IndexPage extends Vue {
   get entries() {
-    return [
-      { title: 'hoge', date: '2021' },
-      { title: 'fuga', date: '2022' },
-    ];
+    return fileList.map((filepath) => { return metaData(fs.readFileSync(filepath, 'utf-8')) })
   }
 }
 </script>

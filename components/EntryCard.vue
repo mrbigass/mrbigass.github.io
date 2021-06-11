@@ -1,6 +1,8 @@
 <template>
   <div>
-    <NuxtLink to="entryLink">
+    <NuxtLink :to="`/entry/${formattedDate}`">
+      {{ title }}
+      {{ formattedDate }}
     </NuxtLink>
   </div>
 </template>
@@ -10,13 +12,17 @@ import { Vue, Component, Prop } from 'vue-property-decorator';
 
 @Component
 export default class EntryCard extends Vue {
-  link: string = '/#';
+  @Prop({ required: true })
+  title!: string
 
   @Prop({ required: true })
-  entry!: Object
+  date!: Date
 
-  get entryLink() {
-    return this.link;
+  get formattedDate() {
+    let y = this.date.getFullYear();
+    let m = ('00' + (this.date.getMonth()+1)).slice(-2);
+    let d = ('00' + this.date.getDate()).slice(-2);
+    return (y + '-' + m + '-' + d);
   }
 }
 </script>
