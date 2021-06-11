@@ -30,8 +30,8 @@ const splitInput = (str: string): string => {
 	return str.slice(0, metaEnd.index);
 }
 
-const metaData = (src: string): { title: string | null, date: Date | null } => {
-  const data: object = yaml.load(splitInput(src))
+const metaData = (src: string): { title: string, date: Date } => {
+  const data = yaml.load(splitInput(src))
 
   const returnData = {
     title: data.title,
