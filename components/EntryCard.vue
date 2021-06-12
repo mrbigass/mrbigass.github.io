@@ -1,14 +1,18 @@
 <template>
-  <div class="entry-card">
-    <NuxtLink :to="`/entry/${formattedDate}`">
+  <NuxtLink :to="`/entry/${formattedDate}`">
+    <div class="entry-card">
       <div class="entry-title">
-        {{ title }}
+        <div class="title-text">
+          {{ title }}
+        </div>
       </div>
       <div class="entry-date">
-        {{ formattedDate }}
+        <div class="date-text">
+          {{ formattedDate }}
+        </div>
       </div>
-    </NuxtLink>
-  </div>
+    </div>
+  </NuxtLink>
 </template>
 
 <script lang="ts">
@@ -39,9 +43,15 @@ export default class EntryCard extends Vue {
   border: 1px solid #999
   border-radius: 10px
   padding: 50px
+  margin: 0 0 50px 0
   transition: box-shadow 0.5s
-  box-shadow: 10px 10px 30px rgba(18, 47, 61, 0.5), -10px -10px 30px rgba(248, 253, 255, 0.9), inset 10px 10px 30px transparent, inset -10px -10px 30px transparent
 
   &:hover
-    box-shadow: 10px 10px 30px transparent, -10px -10px 30px transparent, inset 10px 10px 30px rgba(18, 47, 61, 0.5), inset -10px -10px 30px rgba(248, 253, 255, 0.9)
+    box-shadow: 10px 10px 30px rgba(18, 47, 61, 0.5), -10px -10px 30px rgba(248, 253, 255, 0.9), inset 10px 10px 30px transparent, inset -10px -10px 30px transparent
+
+  .title-text
+    font-size: 40px
+
+  .date-text
+    font-size: 20px
 </style>

@@ -54,7 +54,7 @@ export default class IndexPage extends Vue {
 
 <style lang="sass" scoped>
 .container
-  margin: 0 auto
+  margin: 0
   min-height: 100vh
   display: flex
   justify-content: center
