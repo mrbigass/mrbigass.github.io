@@ -30,15 +30,14 @@ const splitInput = (str: string): string => {
 	return str.slice(0, metaEnd.index);
 }
 
-const metaData = (src: string): { title: string, date: Date } => {
-  const data = yaml.load(splitInput(src))
+const metaData = (src: string): ({ title: string, date: Date } | null) => {
+  let data = <any>{}
+  data = yaml.load(splitInput(src))
 
-  const returnData = {
+  return {
     title: data.title,
-    date: data.date,
+    date: data.date
   }
-
-  return returnData
 };
 
 @Component({
@@ -48,7 +47,7 @@ const metaData = (src: string): { title: string, date: Date } => {
 })
 export default class IndexPage extends Vue {
   get entries() {
-    return fileList.map((filepath) => { return metaData(fs.readFileSync(filepath, 'utf-8')) })
+    return fileList.map((filepath) => { return metaData(fs.readFileSync(filepath, 'utf-8')) }).filter((e) => { return e })
   }
 }
 </script>
