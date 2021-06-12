@@ -24,10 +24,6 @@ export default {
     }
   },
 
-  css: [
-    '~/assets/markdown.sass'
-  ],
-
   components: true,
 
   buildModules: [
