@@ -47,7 +47,7 @@ const metaData = (src: string): ({ title: string, date: Date } | null) => {
 })
 export default class IndexPage extends Vue {
   get entries() {
-    return fileList.map((filepath) => { return metaData(fs.readFileSync(filepath, 'utf-8')) }).filter((e) => { return e })
+    return fileList.map((filepath) => { return metaData(fs.readFileSync(filepath, 'utf-8')) }).filter((e) => { return e }).reverse()
   }
 }
 </script>
