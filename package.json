@@ -16,7 +16,7 @@
     "@types/js-yaml": "^4.0.1",
     "@types/marked": "^2.0.3",
     "@types/node": "^15.12.2",
-    "core-js": "^3.13.1",
+    "core-js": "^3.14.0",
     "node-sass": "^6.0.0",
     "nuxt": "^2.15.6",
     "push-dir": "^0.4.1",
