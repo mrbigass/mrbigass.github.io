@@ -6,13 +6,21 @@
 import { Vue, Component, Prop } from 'vue-property-decorator';
 import marked from 'marked';
 
+function removeMetadata(str: string): string {
+  const matcher = /\n-{3}/g;
+  const metaEnd = matcher.exec(str);
+  if (metaEnd == null) return str
+
+  return str.slice(metaEnd.index, str.length);
+}
+
 @Component
 export default class Markdown extends Vue {
   @Prop()
   markdownRawText!: string
 
   get compiledText(): string {
-    return marked(this.markdownRawText);
+    return marked(removeMetadata(this.markdownRawText));
   }
 }
 </script>
