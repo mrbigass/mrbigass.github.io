@@ -25,9 +25,6 @@ export default class Markdown extends Vue {
 }
 </script>
 <style lang="sass">
-.main
-  padding: 50px 20px
-
 .markdown
   h1
     font-size: 1.7em

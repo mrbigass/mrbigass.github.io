@@ -46,6 +46,7 @@ header
   z-index: 2
   top: 0
   background-color: #fff
+  margin-bottom: 32px!important
 
 .header-container
   margin: 0 auto
@@ -73,8 +74,13 @@ header
     display: flex
   li
     margin-left: 12px
+
 .main
-  max-width:750px
+  max-width:600px
   min-height: 100vh
   margin: 0 auto
+
+  display: flex
+  justify-content: center
+
 </style>

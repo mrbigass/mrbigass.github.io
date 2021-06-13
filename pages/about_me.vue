@@ -1,8 +1,10 @@
 <template>
-  <markdown-loader
-    :markdownFilePath="markdownFilePath"
-  >
-  </markdown-loader>
+  <div class="container">
+    <markdown-loader
+      :markdownFilePath="markdownFilePath"
+    >
+    </markdown-loader>
+  </div>
 </template>
 
 <script lang="ts">

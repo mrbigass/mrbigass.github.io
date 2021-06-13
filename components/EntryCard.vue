@@ -39,18 +39,24 @@ export default class EntryCard extends Vue {
 .entry-card
   width: 100%
   min-width: 500px
-  height: 100px
+  height: 120px
   border: 1px solid #999
   border-radius: 10px
-  padding: 50px
-  margin: 0 0 50px 0
+  padding: 10px 30px
+  margin: 0 0 30px 0
   transition: box-shadow 0.5s
 
   &:hover
     box-shadow: 10px 10px 30px rgba(18, 47, 61, 0.5), -10px -10px 30px rgba(248, 253, 255, 0.9), inset 10px 10px 30px transparent, inset -10px -10px 30px transparent
 
+  .entry-title, .entry-date
+    width: 90%
+
   .title-text
-    font-size: 40px
+    font-size: 30px
+
+  .entry-date
+    text-align: right
 
   .date-text
     font-size: 20px
