@@ -51,6 +51,3 @@ export default class IndexPage extends Vue {
   }
 }
 </script>
-
-<style lang="sass" scoped>
-</style>

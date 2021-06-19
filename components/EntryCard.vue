@@ -49,10 +49,11 @@ export default class EntryCard extends Vue {
   &:hover
     box-shadow: 10px 10px 30px rgba(18, 47, 61, 0.5), -10px -10px 30px rgba(248, 253, 255, 0.9), inset 10px 10px 30px transparent, inset -10px -10px 30px transparent
 
-  .entry-title, .entry-date
-    width: 90%
-
   .title-text
+    width: 540px
+    overflow: hidden
+    white-space: nowrap
+    text-overflow: ellipsis
     font-size: 30px
 
   .entry-date
