@@ -1,4 +1,5 @@
-import fileList from './lib/entry_files'
+import { Configuration } from '@nuxt/types';
+import fileList from './lib/entry_files';
 
 export default {
   head: {
@@ -36,7 +37,7 @@ export default {
   ],
 
   build: {
-    extend(config, ctx) {
+    extend(config: Configuration) {
       config.module.rules.push({
         test: /\.md$/,
         use: ['raw-loader']
