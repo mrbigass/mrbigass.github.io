@@ -1,3 +1,16 @@
+/*!
+  * vue-router v3.5.1
+  * (c) 2021 Evan You
+  * @license MIT
+  */
+
+/*!
+ * Vue.js v2.6.13
+ * (c) 2014-2021 Evan You
+ * Released under the MIT License.
+ */
+
+
 /**
   * vue-class-component v6.3.2
   * (c) 2015-present Evan You
@@ -14,18 +27,11 @@
 
 /*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
 
-
-/*!
-  * vue-router v3.5.1
-  * (c) 2021 Evan You
+/**
+  * vue-class-component v6.3.2
+  * (c) 2015-present Evan You
   * @license MIT
   */
-
-/*!
- * Vue.js v2.6.13
- * (c) 2014-2021 Evan You
- * Released under the MIT License.
- */
 
 
 /*!
