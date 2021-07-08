@@ -2,7 +2,7 @@
   <div class="container">
     <div>
       <h1>
-        I'll make this page soon
+        時間のある時作る！
       </h1>
     </div>
   </div>
